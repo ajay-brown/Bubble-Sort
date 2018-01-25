@@ -1,22 +1,22 @@
-function bubbleSort(arr) {
+var bubbleSort = function(arr) {
     if (!Array.isArray(arr)) {
         return null;
     }
-    let length = arr.length;
-    let leftArr;
-    let rightArr;
-    for (var i=0;i<length;i++){
-        if (arr[i]>arr[i+1]) {
-        rightArr.push(arr[i]);
-        leftArr.push(arr[i+1]);
-        i++;
-        i++;
+    var leftArr = [];
+    var rightArr = [];
+    for (var i=0;i<arr.length;i++){
+      let firstVal = arr[i];
+      let secondVal = arr[i+1];
+        if (firstVal>secondVal) {
+        rightArr.push(firstVal);
+        leftArr.push(secondVal);
+        firstVal = arr[i+1];
     } else {
-        leftArr.push(arr[i]);
-        rightArr.push(arr[i+1]);
-        i++;
-        i++;
+        leftArr.push(firstVal);
+        rightArr.push(secondVal);
+        firstVal = arr[i+1];
     }
-    return leftArr + rightArr
+   
 }
+return leftArr.concat(rightArr);
 }
