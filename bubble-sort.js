@@ -2,21 +2,17 @@ var bubbleSort = function(arr) {
     if (!Array.isArray(arr)) {
         return null;
     }
-    var leftArr = [];
-    var rightArr = [];
-    for (var i=0;i<arr.length;i++){
-      let firstVal = arr[i];
-      let secondVal = arr[i+1];
-        if (firstVal>secondVal) {
-        rightArr.push(firstVal);
-        leftArr.push(secondVal);
-        firstVal = arr[i+1];
-    } else {
-        leftArr.push(firstVal);
-        rightArr.push(secondVal);
-        firstVal = arr[i+1];
+  for (var j = arr.length-1;j>=0;j--){
+    for (var i=1;i<=j;i++){
+        if (arr[i-1]>arr[i]) {
+       var movingVar = arr[i-1];
+          arr[i-1] = arr[i];
+          arr[i] = movingVar;
     }
-   
+    }  
 }
-return leftArr.concat(rightArr);
+  console.log(arr)
+  return arr;
 }
+var newArr = [4,3,2,1];
+bubbleSort(newArr);
