@@ -1,20 +1,22 @@
 //using recursion + 3 variables 
-
+let newArr= [];
 function quickSort(arr) {
-    let newArr;
-    if (arr.length===0) {
-        return newArr;
+let leftArr =[];
+let rightArr = [];
+let equalArr = [];
+let pivot = (arr.length /2) || 0;
+    if (arr.length < 2){
+        return arr;
     }
-    let pivot = arr[0];
-    let leftArr;
-    let rightArr;
-    for (var i=1;i<arr.length;i++){
-        if(arr[i]>arr[i+1]) { 
-            leftArr.push(arr[i+1]);
+    for (var i=0;i<arr.length;i++){
+        if(arr[i]>arr[pivot]) { 
             rightArr.push(arr[i]);
-
+        } else if (arr[i] < data[pivot]) {
+            leftArr.push(arr[i]);
+        } else {
+            equalArr.push(arr[i]);
         }
     }
-    newArr.push(leftArr, pivot, rightArr);
-    quickSort(newArr);
+    newArr.push(leftArr, equalArr, rightArr);
+  //  quickSort(newArr);
 }
